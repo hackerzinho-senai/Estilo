@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de Musicas</h1>
+    <a href="{% url 'cadastrar_musicas' %}">Cadastrar Nova Música</a>
+    <ul>
+        {% for musica in musicas %}
+        <li>
+            {{ musica.nome }} - {{ musica.estilo }}
+            <a href="{% url 'editar_musicas' musica.id %}">Editar</a>
+            <a href="{% url 'excluir_musicas' musica.id %}">Excluir</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
